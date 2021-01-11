@@ -1,0 +1,22 @@
+<div class="my-background">
+    <app-navbar></app-navbar>
+    <div class="container-md d-flex justify-content-center">
+        <div class="my-form">
+            <form [formGroup]="userForm" (ngSubmit)="addUser()">
+                <div class="form-group">
+                    <label>User Email Id</label>
+                    <input type="text" formControlName="email" class="form-control">
+                    <small *ngIf="(userForm.get('email').touched || userForm.get('email').dirty) && userForm.get('email').hasError('required')" class="text-muted">*This filed is required</small>
+                    <small *ngIf="(userForm.get('email').touched || userForm.get('email').dirty) && userForm.get('email').hasError('email')" class="text-muted">Enter valid mail Id</small>
+                </div>
+                <div class="form-group">
+                    <label>User Age</label>
+                    <input type="text" formControlName="age" class="form-control">
+                    <small *ngIf="(userForm.get('age').touched || userForm.get('age').dirty) && userForm.get('age').hasError('required')" class="text-muted">*This filed is required</small>
+                    <small *ngIf="(userForm.get('age').touched || userForm.get('age').dirty) && (userForm.get('age').hasError('min') || userForm.get('age').hasError('max'))" class="text-muted">Age should be between 18 and 60</small>
+                </div>
+                <button [disabled]="!userForm.valid" class="btn btn-success">Add User</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="my-background">
+    <app-navbar></app-navbar>
+    <div class="container d-flex justify-content-center">
+        <div *ngFor="let user of (users | sort)" class="card">
+            <p>User Email: {{user.email}}</p>
+            <p>User Age: {{user.age}}</p>
+        </div>
+    </div>
+</div>
